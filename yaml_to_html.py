@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# /// script
+# dependencies = [
+#   "pandas",
+#   "pyyaml",
+# ]
+# ///
 
 import pandas as pd
 import yaml
