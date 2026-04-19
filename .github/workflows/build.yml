@@ -1,0 +1,26 @@
+name: Rebuild HTML files
+
+on:
+  push:
+    paths:
+      - "features.yaml"
+  pull_request:
+    paths:
+      - "features.yaml"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for Running"
+        required: false
+        default: "Manually trigger problem check"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Run build
+        run: |
+          uv run yaml_to_html.py
